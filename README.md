@@ -35,8 +35,13 @@ Entities:
     
     -   create_at
     
+**Must create a CRUD for a Disclaimer entity**
 
-Must create CRUD for **Disclaimer** entity filter by field “text” in READ endpoint and CREATE and LIST endpoints for **Acceptance** entity with conditional filter by user_id field.
+-   The READ endpoint must be able to filter the disclaimers by field “text” as an optional parameter.
+
+**Must create CREATE and LIST endpoints for the Acceptance entity**
+
+-   The LIST endpoint must be able to filter the acceptances by the “user_id” field as an optional parameter
 
 # Requirements
 
