@@ -37,7 +37,7 @@ Entities:
     
 **Must create a CRUD for a Disclaimer entity**
 
--   The READ endpoint must be able to filter the disclaimers by field “text” as an optional parameter.
+-   The LIST endpoint must be able to filter the disclaimers by field “text” as an optional parameter.
 
 **Must create CREATE and LIST endpoints for the Acceptance entity**
 
