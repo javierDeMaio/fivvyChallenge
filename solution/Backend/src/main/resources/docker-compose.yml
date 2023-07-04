@@ -1,0 +1,14 @@
+version: "3"
+services:
+  fivvymongodb:
+    image: mongo:latest
+    container_name: fivvymongodb
+    ports:
+      - 27017:27017
+  backend:
+    image: backend
+    container_name: backend
+    ports:
+      - 8080:8080
+    depends_on:
+      - fivvymongodb

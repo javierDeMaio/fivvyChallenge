@@ -1,77 +1,94 @@
-# Fivvy Backend Challenge
+## Execution
 
-This is a simple challenge to test your skills on building APIs. The Fivvy services use mainly Java and Springboot technologies.
+1. Make sure you have Java 17, Maven and Docker installed on your machine.
 
-# What to do
+2. Clone this repository:
 
-Create a simple API to manage disclaimer acceptance of terms and conditions
+3. Navigate to the project directory
 
-Entities:
+4. run mvn clean install
 
--**Disclaimer**
+5. run docker build -t backend .
 
-    Fields
+6. go to src/main/resources and run "docker-compose up"
 
-      -   id
-    
-     -   name
-    
-     -   text
-    
-     -   version
-    
-     -   create_at
-    
-    -   update_at
-    
 
--**Acceptance**
+The application will run at http://localhost:8080.
 
-  Fields
+## API Endpoints:
 
-    -   disclaimer_id
-    
-    -   user_id
-    
-    -   create_at
-    
-**Must create a CRUD for a Disclaimer entity**
+Here are the specifications to make requests to each endpoint of the project using Postman:
 
--   The LIST endpoint must be able to filter the disclaimers by field “text” as an optional parameter.
+Endpoint: ## Create Acceptance##
+Method: POST
+URL: http://localhost:8080/api/acceptances
+Body (raw - JSON):
 
-**Must create CREATE and LIST endpoints for the Acceptance entity**
+{
+    "disclaimerId": Long,
+    "userId": Long
+}
 
--   The LIST endpoint must be able to filter the acceptances by the “user_id” field as an optional parameter
+Endpoint 2: ##  Get Acceptance by User ID ## 
+URL: http://localhost:8080/api/acceptances/{userId}
 
-# Requirements
+Method: GET
 
--   All API responses must be JSON
-    
--   Provide a README.md file with usage instructions (how to run, endpoints etc)
-    
--   Specify a docker image in Readme or include docker compose file.
-    
--   The use of non-relational databases like DynamoDB will be taken into account as a plus.
-    
 
-# Recommendations
+Endpoint 3: ## Get All Acceptances ## 
+URL: http://localhost:8080/api/acceptances
 
--   TDD
-    
--   SOLID
-    
--   Code and commits in english (methods, classes, variables, etc)
-    
+Method: GET
 
-# Evaluation
+Body (raw - JSON):
 
--   Project structure, architecturing and organization (50%)
-    
--   Programming good practices (30%)
-    
--   Testing strategy (20%)
-    
+{
+  "name": "Disclaimer 1",
+  "text": "Lorem ipsum dolor sit amet.",
+  "version": 1,
+}
 
-# Delivery
+Endpoint 4: ##  Create Disclaimer ## 
+URL: http://localhost:8080/api/disclaimer
 
-You must fork this repository and commit the solution in the solution folder. Your repository must be public. After that, send the repository link to recruiter.
+Method: POST
+
+Request Body:
+{
+  "name": "Disclaimer 1",
+  "text": "Lorem ipsum dolor sit amet.",
+}
+
+
+Endpoint 5:##  Get Disclaimer by Text ## 
+URL: http://localhost:8080/api/disclaimer?text=lorem
+
+Method: GET
+
+
+Endpoint 6: ## Get All Disclaimers ## 
+URL: http://localhost:8080/api/disclaimer
+
+Method: GET
+
+
+
+Endpoint 7: ## Delete Disclaimers by id ## 
+
+URL: http://localhost:8080/api/disclaimers/{id}
+
+method: DELETE
+
+Endpoint 8: ## Update Disclaimers by id ## 
+
+URL:http://localhost:8080/api/disclaimers/{id}
+
+Request Body:
+{
+    "name":"Disclaimer text updated",
+    "text":"Disclaimer text updated"
+}
+
+
+The app is beyond 90% "successful" test, so it is presumed to be stable.
+
